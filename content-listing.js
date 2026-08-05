@@ -63,17 +63,40 @@
 
   function injectLink(tile, upc) {
     if (tile.querySelector(".wm-upc-mini")) return;
-    const amazonUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(upc);
+     const amazonTag = "retailupcfinder-20";
+     const amazonUrl =
+        "https://www.amazon.com/s?k=" +
+        encodeURIComponent(upc) +
+        "&tag=" +
+        amazonTag;
     const el = document.createElement("a");
     el.className = "wm-upc-mini";
     el.href = amazonUrl;
     el.target = "_blank";
     el.rel = "noopener noreferrer";
-    el.textContent = "Search Amazon UPC " + upc + " \u2197";
+    el.textContent = " Search UPC On Amazon " + upc + " \u2197";
     el.addEventListener("click", function (e) {
-      e.stopPropagation();
-    });
-    tile.appendChild(el);
+     e.preventDefault();
+     e.stopPropagation();
+     e.stopImmediatePropagation();
+     window.open(el.href, "_blank", "noopener,noreferrer");
+     return false;
+ }, true);   // <-- capture phase
+    const title = tile.querySelector('[data-automation-id="product-title"]');
+
+if (!title) return;
+
+const container = document.createElement("div");
+container.style.position = "relative";
+container.style.zIndex = "9999";
+container.className = "wm-upc-container";
+
+el.style.position = "relative";
+el.style.zIndex = "9999";
+el.style.display = "inline-block";
+
+container.appendChild(el);
+title.parentElement.appendChild(container);
   }
 
   const queue = [];

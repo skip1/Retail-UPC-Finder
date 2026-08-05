@@ -58,9 +58,12 @@
     if (document.getElementById("wm-upc-badge")) return;
     const titleEl = document.querySelector("h1");
     if (!titleEl) return;
-
-    const amazonUrl = "https://www.amazon.com/s?k=" + encodeURIComponent(upc);
-
+    const amazonTag = "retailupcfinder-20";
+    const amazonUrl =
+        "https://www.amazon.com/s?k=" +
+        encodeURIComponent(upc) +
+        "&tag=" +
+        amazonTag;
     const container = document.createElement("div");
     container.id = "wm-upc-badge";
     container.className = "wm-upc-badge";
