@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "UPC Finder for Online Shopping",
+  "version": "1.0.0",
+  "description": "Shows the UPC on Walmart products with a link to Amazon to price check.",
+  "content_scripts": [
+    {
+      "matches": ["*://*.walmart.com/ip/*"],
+      "js": ["content-product.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://*.walmart.com/search*",
+        "*://*.walmart.com/browse/*",
+        "*://*.walmart.com/cp/*"
+      ],
+      "js": ["content-listing.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": ["*://*.walmart.com/*"]
+}
