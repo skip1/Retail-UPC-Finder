@@ -1,0 +1,120 @@
+ /* =========================================================
+    RETAIL UPC FINDER
+    PRODUCT + LISTING PAGE CSS
+    ========================================================= */
+
+
+ /* =========================================================
+    PRODUCT PAGE
+    ========================================================= */
+
+ div.retail-upc-badge {
+     display: flex !important;
+     align-items: center !important;
+
+     font-size: 14px !important;
+     line-height: 1.4 !important;
+     font-family: -apple-system, Arial, sans-serif !important;
+
+     gap: 8px !important;
+
+     margin: 8px 0 !important;
+     padding: 8px 12px !important;
+
+     background: rgb(238, 246, 255) !important;
+
+     border: 1px solid rgb(179, 215, 255) !important;
+     border-radius: 8px !important;
+
+     box-sizing: border-box !important;
+
+     color: #333 !important;
+ }
+
+
+ div.retail-upc-badge .retail-upc-label {
+     font-weight: 600 !important;
+     color: #333 !important;
+ }
+
+
+ div.retail-upc-badge .retail-upc-value {
+     font-family: "SFMono-Regular", Consolas, monospace !important;
+     color: #111 !important;
+ }
+
+
+ div.retail-upc-badge .retail-upc-link {
+     margin-left: auto !important;
+
+     color: #ff9900 !important;
+     font-weight: 600 !important;
+
+     text-decoration: none !important;
+ }
+
+
+ div.retail-upc-badge .retail-upc-link:hover {
+     text-decoration: underline !important;
+ }
+
+
+ /* =========================================================
+    LISTING PAGE
+    SMALL VERSION OF THE OLD WORKING .wm-upc-mini
+    ========================================================= */
+
+ a.retail-upc-mini {
+    display: block !important;
+
+    width: max-content !important;
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    margin: 6px 0 0 0 !important;
+    padding: 3px 7px !important;
+
+    background: rgb(238, 246, 255) !important;
+
+    border: 1px solid rgb(179, 215, 255) !important;
+    border-radius: 5px !important;
+
+    font-family: -apple-system, Arial, sans-serif !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+
+    color: #333 !important;
+
+    text-decoration: none !important;
+
+    position: static !important;
+    float: none !important;
+
+    flex: none !important;
+}
+
+a.retail-upc-mini:hover {
+    color: #333 !important;
+    text-decoration: underline !important;
+}
+
+
+ a.retail-upc-mini:hover {
+     color: #007185 !important;
+     background: #fff8e7 !important;
+
+     text-decoration: underline !important;
+ }
+
+
+ a.retail-upc-mini:visited {
+     color: #007185 !important;
+ }
+
+
+ a.retail-upc-mini::before,
+ a.retail-upc-mini::after {
+     content: none !important;
+ }

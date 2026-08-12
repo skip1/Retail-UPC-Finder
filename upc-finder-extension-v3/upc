@@ -1,0 +1,82 @@
+// shared/upc.js
+
+(function () {
+
+    if (window.RetailUPC)
+        return;
+
+    const RetailUPC = {};
+
+    RetailUPC.isValidUPC = function (code) {
+
+        if (!/^\d{12}$/.test(code))
+            return false;
+
+        let sum = 0;
+
+        for (let i = 0; i < 11; i++) {
+            sum += Number(code[i]) * (i % 2 ? 3 : 1);
+        }
+
+        return ((10 - (sum % 10)) % 10) === Number(code[11]);
+    };
+
+
+    RetailUPC.getNextData = function (doc) {
+
+        const el = doc.getElementById("__NEXT_DATA__");
+
+        if (!el)
+            return null;
+
+        try {
+            return JSON.parse(el.textContent);
+        }
+        catch (e) {
+            console.log("NEXT_DATA parse failed", e);
+            return null;
+        }
+
+    };
+
+
+    RetailUPC.getSite = function (host) {
+
+        if (host.includes("walmart"))
+            return "walmart";
+
+        if (host.includes("target"))
+            return "target";
+
+        if (host.includes("bestbuy"))
+            return "bestbuy";
+
+        return null;
+
+    };
+
+
+    RetailUPC.extract = function (site, doc, url) {
+
+        switch (site) {
+
+            case "walmart":
+                return RetailUPC.extractWalmart(doc);
+
+            case "target":
+                return RetailUPC.extractTarget(doc, url);
+
+            case "bestbuy":
+                return RetailUPC.extractBestBuy(doc, url);
+
+            default:
+                return null;
+
+        }
+
+    };
+
+
+    window.RetailUPC = RetailUPC;
+
+})();

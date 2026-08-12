@@ -1,0 +1,59 @@
+
+{
+  "manifest_version": 3,
+  "name": "Retail UPC Finder for Online Shopping Multi Site",
+  "version": "3.0.0",
+  "description": "Shows UPCs on retail product pages with Amazon search links.",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.walmart.com/*",
+        "*://*.target.com/*",
+        "*://*.homedepot.com/*",
+        "*://*.lowes.com/*",
+        "*://*.costco.com/*",
+        "*://*.bestbuy.com/*",
+        "*://*.walgreens.com/*",
+        "*://*.cvs.com/*"
+      ],
+      "js": [
+        "upc.js",
+        "content-product.js"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "run_at": "document_idle"
+    },
+
+    {
+      "matches": [
+        "*://*.walmart.com/search*",
+        "*://*.walmart.com/browse/*",
+        "*://*.target.com/*",
+        "*://*.bestbuy.com/site/*",
+        "*://*.costco.com/s*",
+        "*://*.homedepot.com/*",
+        "*://*.lowes.com/search*"
+      ],
+      "js": [
+        "upc.js",
+        "content-listing.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "host_permissions": [
+    "*://*.walmart.com/*",
+    "*://*.target.com/*",
+    "*://*.homedepot.com/*",
+    "*://*.lowes.com/*",
+    "*://*.costco.com/*",
+    "*://*.bestbuy.com/*",
+    "*://*.walgreens.com/*",
+    "*://*.cvs.com/*"
+  ]
+}
+
