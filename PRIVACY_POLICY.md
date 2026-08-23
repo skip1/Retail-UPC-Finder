@@ -1,4 +1,4 @@
-# Privacy Policy — UPC Finder for Online Shopping
+# Privacy Policy — UPC Finder for Resellers
 
 **Last updated: July 31, 2026**
 
