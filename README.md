@@ -1,4 +1,4 @@
-# UPC Finder for Online Shopping
+# UPC Finder for Resellers
 
 Chrome extension (Manifest V3) that shows a product's UPC on supported
 shopping sites and gives you a one-click link to search that UPC on
